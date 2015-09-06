@@ -4,13 +4,16 @@ h1 {
 
 #remainingMatches {
 	list-style: none;
-	margin-left: -40px;
+	padding: 0px;
 	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgba(187, 187, 204, 0.8);
 }
 #remainingMatches li {
 	display: inline-block;
-	margin-right: 5px;
-	background-image: #fff url("../Img/support.jpg") repeat-x;
+	width: 16px;
+	background-image: url("../Img/Matches_game/support.jpg");
 }
 
 .row {

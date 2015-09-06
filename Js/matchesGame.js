@@ -1,6 +1,7 @@
 $(document).ready( function() {
 });
 
+// USE TO FINISH THE GAME
 function GameOver() {
 	if(confirm("GAME OVER!\nWould you like to try again ?")) {
 
@@ -10,8 +11,12 @@ function GameOver() {
 }
 
 // USE TO COUNT MATCHES
-var matches = $('#remainingMatches li');
+var matches = $('#remainingMatches li img');
 var remainingMatches = matches.length;
+
+// TAILLE DU UL #remainingMatches
+var matchesSize = 20.5;
+$('#remainingMatches').css('width', (matchesSize * remainingMatches) + 'px');
 
 // MAIN GAME
 $(".nbRemove").click(function() {
@@ -27,7 +32,7 @@ $(".nbRemove").click(function() {
 		return;
 	}
 
-	matches.slice(remainingMatches - parseInt(nbRemove)).hide();
+	matches.slice(remainingMatches - parseInt(nbRemove)).css('visibility', 'hidden');
 	remainingMatches -= parseInt(nbRemove);
 	
 });
