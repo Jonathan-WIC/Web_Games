@@ -1,10 +1,10 @@
 <?php
 
-date_default_timezone_set('Europe/Paris');
 /*
 * Ce fichier contient les variables globales qui seront utilisées sur toutes les pages du site ainsi que leur documentation.
 * Pour chaque variable ajoutée veuillez indiquer son type, son utilisation, et dans le cas d'un objet ses attributs et méthodes
 */
+date_default_timezone_set('Europe/Paris');
 
 /*
 * $page
@@ -15,6 +15,7 @@ date_default_timezone_set('Europe/Paris');
 * [args] : les arguments à passer à la méthode
 * [css] : chemin vers une feuille de style additionelle (optionnel)
 * [script] : chemin vers une feuille de script additionelle (optionnel)
+* [xhr] : chemin vers une feuille de script définissant la class XHR pour les cas où l'on veut faire de l'ajax sans jQuery (optionnel)
 */
 global $page;
 $page = array(); //Titre, class "active";
