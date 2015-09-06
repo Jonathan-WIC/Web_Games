@@ -1,0 +1,46 @@
+#gameTitle{
+	text-align: center;
+}
+.test{
+	margin: 20px;
+}
+#ctrl_game{
+	margin:0px auto 70px;
+	position: relative;
+	padding: 15px;
+	cursor: default;
+	-moz-user-select: none;
+	background: #BBADA0 none repeat scroll 0% 0%;
+	border-radius: 6px;
+	width: 500px;
+	height: 500px;
+	box-sizing: border-box;
+}
+.gameContainer{
+    position: absolute;
+    z-index: 1;
+}
+.gridRow{
+	display:inline-block;
+	margin-bottom: 14px;
+}
+.gridCell {
+    width: 107px;
+    height: 107px;
+    background-color: #999;
+    border-radius: 3px;
+    margin-right: 11px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.gridCell p{
+	text-align: center;
+    position: relative;
+    top:24px;
+    margin:0;
+    font-size:50px;
+    font-weight:bold;
+}
+.lastCell{
+    margin-right: 0px;
+}

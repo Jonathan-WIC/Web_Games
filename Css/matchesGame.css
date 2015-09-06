@@ -1,0 +1,19 @@
+h1 {
+	text-align: center;
+}
+
+#remainingMatches {
+	list-style: none;
+	margin-left: -40px;
+	margin-top: 10px;
+}
+#remainingMatches li {
+	display: inline-block;
+	margin-right: 5px;
+	background-image: #fff url("../Img/support.jpg") repeat-x;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}

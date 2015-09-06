@@ -1,0 +1,31 @@
+html{
+	margin: auto;
+	padding: auto;
+	font-size: 15px;
+	color: #4F5858;
+}
+body{
+	background-image: url(../Img/Background.jpg);
+}
+h1, h2{
+	text-align: center;
+}
+
+nav ul{
+	list-style: none;
+	text-align: center;
+}
+nav ul li{
+	display:inline-block;
+	width: 180px;
+	background-color: lightgrey;
+	vertical-align: middle;
+	padding:10px;
+}
+.page {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.nav_header_Link{
+	text-decoration: none;
+	color: #999999;
+}

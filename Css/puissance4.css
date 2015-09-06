@@ -1,0 +1,47 @@
+#puissance4_controler{
+	width: 870px;
+}
+#puissance4{
+	margin-left:89px;
+	width: 692px;
+	height: 588px;
+	background-image: url(../Img/puissance_4/game_layer.gif);
+	background-repeat: no-repeat;
+}
+#ctrl_options_puissance4{
+	text-align: center;
+	margin: 10px 0;
+}
+
+.game_row{
+	height: 98px;
+}
+.cell{
+	padding: 0;
+	margin: 0;
+	border: 1px solid #D4d4d4;
+	border-collapse: collapse;
+	cursor: pointer;
+}
+.game_row .cell:first-child{
+	padding-right:9px;
+}
+.game_row .cell:last-child {
+    padding-left: 9px;
+}
+
+.cell.player_1
+{	
+	background-image: url(../Img/morpion/croix.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: default;
+}
+.cell.player_2
+{
+	background-image: url(../Img/morpion/rond.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 60%;
+	cursor: default;
+}

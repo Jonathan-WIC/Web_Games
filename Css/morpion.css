@@ -1,0 +1,57 @@
+.morpion_controler
+{
+	max-width: 465px;
+	margin-left: 202px;
+	text-align: center;
+}
+#ctrl_options_morpion
+{
+	margin: 10px 0;
+}
+.reset_game
+{
+	height: 35px;
+	width: 70px;
+}
+.cell
+{
+	max-width: 143px;
+	height: 143px;
+	border: 1px solid #DDD;
+	border-collapse: collapse;
+	cursor: pointer;
+	background-color: #FFF;
+	background-image: none;
+}
+.cell.player_1
+{	
+	background-image: url(../Img/morpion/croix.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: default;
+}
+.cell.player_2
+{
+	background-image: url(../Img/morpion/rond.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 60%;
+	cursor: default;
+}
+#end_layer
+{
+	width: 463px;
+	height: 429px;
+	position: absolute;
+	top: 55px;
+	left: 218px;
+	background-color: #F8F8F8;
+	opacity: 0.8;
+	text-align: center;
+}
+#end_msg
+{
+	text-align: center;
+	position: relative;
+	top: 204.5px;
+}
