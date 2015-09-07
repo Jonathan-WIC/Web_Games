@@ -28,6 +28,7 @@ switch($EX)
     case 'matchesGame'  : AccessMatchesGame();  break;
     case 'morpion'      : morpion();            break;
     case 'puissance4'   : puissance4();         break;
+    case 'rpg'          : rpg();                break;
 
     //ERROR PAGE WHEN WRONG URL 
     default : error();
@@ -65,6 +66,16 @@ function Access2048()
     $page['css']    = 'Css/2048.css';
     $page['script'] = 'Js/2048.js';
 }
+function AccessMatchesGame()
+{
+    global $page;
+    $page['title']  = 'Jeu des allumettes';
+    $page['class']  = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg']    = 'Html/matchesGame.php';
+    $page['css']    = 'Css/matchesGame.css';
+    $page['script'] = 'Js/matchesGame.js';
+}
 function morpion()
 {
     global $page;
@@ -85,14 +96,15 @@ function puissance4()
     $page['css']    = 'Css/puissance4.css';
     $page['script'] = 'Js/puissance4.js';
 }
-function AccessMatchesGame()
+function rpg()
 {
     global $page;
-    $page['title']  = 'Jeu des allumettes';
+    $page['title']  = 'RPG';
     $page['class']  = 'VHtml';
     $page['method'] = 'showHtml';
-    $page['arg']    = 'Html/matchesGame.php';
-    $page['css']    = 'Css/matchesGame.css';
-    $page['script'] = 'Js/matchesGame.js';
+    $page['arg']    = 'Html/rpg.html';
+    $page['css']    = 'Css/rpg.css';
+    $page['script'] = 'Js/rpg.js';
+    $page['xhr']    = 'Js/oXHR.js';
 }
 ?>
