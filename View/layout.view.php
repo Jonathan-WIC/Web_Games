@@ -61,6 +61,9 @@
     
     <!-- Ajout feuille de script spécifique à cette page -->
     <?php
+        if (isset($page['xhr'])) {
+            echo '<script src="Js/oXHR.js"></script>' ;
+        }
         if (isset($page['script'])) {
             echo '<script src="'.$page['script'].'"></script>' ;
         }
