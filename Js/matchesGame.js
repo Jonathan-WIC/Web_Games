@@ -1,6 +1,17 @@
 $(document).ready( function() {
 });
 
+// USE TO COUNT MATCHES
+var matches = $('#remainingMatches li img');
+var remainingMatches = matches.length;
+
+// WIDTH OF UL #remainingMatches
+var matchesSize = 20.5;
+$('#remainingMatches').css(
+	'width',
+	(matchesSize * remainingMatches) + 'px'
+);
+
 // USE TO FINISH THE GAME
 function GameOver() {
 	if(confirm("GAME OVER!\nWould you like to try again ?")) {
@@ -9,14 +20,6 @@ function GameOver() {
 			remainingMatches = matches.length;
 	}
 }
-
-// USE TO COUNT MATCHES
-var matches = $('#remainingMatches li img');
-var remainingMatches = matches.length;
-
-// TAILLE DU UL #remainingMatches
-var matchesSize = 20.5;
-$('#remainingMatches').css('width', (matchesSize * remainingMatches) + 'px');
 
 // MAIN GAME
 $(".nbRemove").click(function() {
@@ -36,3 +39,8 @@ $(".nbRemove").click(function() {
 	remainingMatches -= parseInt(nbRemove);
 	
 });
+
+// OPTION
+$('#option').click(function() {
+	alert('welcome to the tool box!');
+})

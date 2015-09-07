@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="Lib/bootstrap.min.css" />
     <link rel="stylesheet" href="Lib/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="Lib/bootstrap.icon-large.min.css" />
+    <!-- <link href="Lib/font-awsome-4.4.0/*"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Css/style.css" />
 
     <!-- Ajout feuille de style spécifique à cette page -->
@@ -56,7 +58,6 @@
     </div>
 
     <script src="./Lib/jquery.min.js"></script>
-    <script src="./Lib/jquery-ui.js"></script>
     <script src="./Lib/bootstrap.min.js"></script>
     
     <!-- Ajout feuille de script spécifique à cette page -->
