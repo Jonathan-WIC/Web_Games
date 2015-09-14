@@ -1,4 +1,3 @@
-//var map = new Map("map");
 var map = new Map("map");
 
 window.onload = function() {
