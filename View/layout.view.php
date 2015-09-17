@@ -56,7 +56,6 @@
     </div>
 
     <script src="./Lib/jquery.min.js"></script>
-    <script src="./Lib/jquery-ui.js"></script>
     <script src="./Lib/bootstrap.min.js"></script>
     
     <!-- Ajout feuille de script spécifique à cette page -->

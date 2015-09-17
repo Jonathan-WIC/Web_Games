@@ -15,6 +15,10 @@ function Map(nom){
 	//récupéeation du tileset utilisé et de la config de la map
 	this.tileset = new Tileset(mapData.tileset);
 	this.terrain = mapData.terrain;
+
+	// Liste des personnages présents sur le terrain.
+	this.personnages = new Array();
+
 }
 
 // Pour récupérer la taille (en tiles) de la carte
@@ -35,4 +39,14 @@ Map.prototype.dessinerMap = function(context) {
 			this.tileset.dessinerTile(ligne[j], context, x, y);
 		}
 	}
+	
+	// Dessin des personnages
+	for(var i = 0, l = this.personnages.length ; i < l ; i++) {
+	    this.personnages[i].dessinerPersonnage(context);
+	}
+}
+
+// Pour ajouter un personnage
+Map.prototype.addPersonnage = function(perso) {
+	this.personnages.push(perso);
 }
