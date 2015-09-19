@@ -1,13 +1,7 @@
 var map = new Map("map");
-var x = 0;
-var y = 0;
+var x = 7;
+var y = 7;
 var joueur = new Personnage("perso.png", x, y, DIRECTION.BAS)
-
-if (x > map.getLargeur())
-	x = map.getLargeur() - 1;
-if (y > map.getHauteur())
-	y = map.getHauteur() - 1;
-
 
 map.addPersonnage(joueur);
 

@@ -5,10 +5,14 @@ var DIRECTION = {
     "HAUT"   : 3
 };
 
+var DUREE_ANIMATION = 4;
+var DUREE_DEPLACEMENT = 15;
+
 function Personnage(url, x, y, direction) {
     this.x = x; // (X position en cases)
     this.y = y; // (Y position en cases)
     this.direction = direction;
+    this.etatAnimation = -1;
 
     // Chargement de l'image dans l'attribut image
     this.image = new Image();
@@ -27,12 +31,57 @@ function Personnage(url, x, y, direction) {
 }
 
 Personnage.prototype.dessinerPersonnage = function(context) {
+
+	var frame = 0; // Numéro de l'image à prendre pour l'animation
+	var decalageX = 0, decalageY = 0; // Décalage à appliquer à la position du personnage
+	if(this.etatAnimation >= DUREE_DEPLACEMENT) {
+		// Si le déplacement a atteint ou dépassé le temps nécessaire pour s'effectuer, on le termine
+		this.etatAnimation = -1;
+	} else if(this.etatAnimation >= 0) {
+		// On calcule l'image (frame) de l'animation à afficher
+		frame = Math.floor(this.etatAnimation / DUREE_ANIMATION);
+		if(frame > 3) {
+			frame %= 4;
+		}
+		
+		// Nombre de pixels restant à parcourir entre les deux cases
+		var pixelsAParcourir = 32 - (32 * (this.etatAnimation / DUREE_DEPLACEMENT));
+		console.log('pixelsAParcourir'+ pixelsAParcourir);
+		
+		// À partir de ce nombre, on définit le décalage en x et y.
+		// NOTE : Si vous connaissez une manière plus élégante que ces quatre conditions, je suis preneur
+		if(this.direction == DIRECTION.HAUT) {
+			decalageY = pixelsAParcourir;
+		} else if(this.direction == DIRECTION.BAS) {
+			decalageY = -pixelsAParcourir;
+		} else if(this.direction == DIRECTION.GAUCHE) {
+			decalageX = pixelsAParcourir;
+		} else if(this.direction == DIRECTION.DROITE) {
+			decalageX = -pixelsAParcourir;
+		}
+		
+		this.etatAnimation++;
+	}
+
+	// Perso
+    // context.drawImage(
+    //     this.image, 
+    //     this.largeur * frame,				// Point d'origine du rectangle source à prendre dans notre image (multiplie par la frame pour avoir la bonne image du mouvement)
+    //     this.direction * this.hauteur,		// Point d'origine  du rectangle source à prendre dans notre image (direction * hauteur pour avoir)
+    //     this.largeur, this.hauteur, 		// Taille du rectangle source (c'est la taille du personnage)
+    //     (this.x*32) - (this.largeur/2) + 16,   // On prend la position X multipliée par 32 pour l'avoir en case, on soustrait la largeur de l'image et on ajoute la moitié de la largeur d'une case.
+    //     (this.y*32) - (this.hauteur/3), 		// On prend la position X multipliée par 32 pour l'avoir en case, on soustrait un tier de la hauteur pour que le haut dépasse un peu de la case
+    //     this.largeur, this.hauteur			// Taille du rectangle destination (c'est la taille du personnage)
+    // );
+
+	// Donnée 
     context.drawImage(
         this.image, 
-        0, this.direction * this.hauteur,	// Point d'origine du rectangle source à prendre dans notre image
+        this.largeur * frame,				// Point d'origine du rectangle source à prendre dans notre image (multiplie par la frame pour avoir la bonne image du mouvement)
+        this.direction * this.hauteur,		// Point d'origine  du rectangle source à prendre dans notre image (direction * hauteur pour avoir)
         this.largeur, this.hauteur, 		// Taille du rectangle source (c'est la taille du personnage)
-        (this.x*32) - (this.largeur/2) + 16,   // On prend la position X multipliée par 32 pour l'avoir en case, on soustrait la largeur de l'image et on ajoute la moitié de la largeur d'une case.
-        (this.y*32) - (this.hauteur/3), 		// On prend la position X multipliée par 32 pour l'avoir en case, on soustrait un tier de la hauteur pour que le haut dépasse un peu de la case
+        (this.x * 32) - (this.largeur / 2) + 16 + decalageX,
+        (this.y * 32) - this.hauteur + 24 + decalageY,
         this.largeur, this.hauteur			// Taille du rectangle destination (c'est la taille du personnage)
     );
 }
@@ -57,6 +106,11 @@ Personnage.prototype.getCoordonneesAdjacentes = function(direction)  {
 }
 	
 Personnage.prototype.deplacer = function(direction, map) {
+	// On ne peut pas se déplacer si un mouvement est déjà en cours !
+	if(this.etatAnimation >= 0) {
+	    return false;
+	}
+
 	// On change la direction du personnage
 	this.direction = direction;
 		
@@ -67,7 +121,10 @@ Personnage.prototype.deplacer = function(direction, map) {
 		// Ça ne coute pas cher et ca peut toujours servir
 		return false;
 	}
-		
+	
+	// On commence l'animation
+	this.etatAnimation = 1;
+	
 	// On effectue le déplacement
 	this.x = prochaineCase.x;
 	this.y = prochaineCase.y;
