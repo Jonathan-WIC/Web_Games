@@ -18,7 +18,7 @@ window.onload = function() {
 
     setInterval(function() {
         map.dessinerMap(ctx);
-    }, 40);
+    }, 28);
 }
 
 window.onkeydown = function(event) {

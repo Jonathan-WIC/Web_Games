@@ -6,7 +6,7 @@ var DIRECTION = {
 };
 
 var DUREE_ANIMATION = 4;
-var DUREE_DEPLACEMENT = 15;
+var DUREE_DEPLACEMENT = 12;
 
 function Personnage(url, x, y, direction) {
     this.x = x; // (X position en cases)
@@ -81,7 +81,7 @@ Personnage.prototype.dessinerPersonnage = function(context) {
         this.direction * this.hauteur,		// Point d'origine  du rectangle source à prendre dans notre image (direction * hauteur pour avoir)
         this.largeur, this.hauteur, 		// Taille du rectangle source (c'est la taille du personnage)
         (this.x * 32) - (this.largeur / 2) + 16 + decalageX,
-        (this.y * 32) - this.hauteur + 24 + decalageY,
+        (this.y * 32) - (this.hauteur/3) + decalageY,
         this.largeur, this.hauteur			// Taille du rectangle destination (c'est la taille du personnage)
     );
 }
